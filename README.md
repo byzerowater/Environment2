@@ -1,5 +1,5 @@
 # Environment2
-프로젝트 환경설정
+프로젝트 환경설정(MVVM)
 ## Libraries
 
 The libraries and tools used include:
