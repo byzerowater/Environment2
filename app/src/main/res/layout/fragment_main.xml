@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.MainFragment">
+
+    <data>
+
+        <import type="com.zerowater.environment.util.VersionUtil" />
+
+        <import type="com.zerowater.environment.util.ListUtil" />
+
+        <variable
+            name="viewModel"
+            type="com.zerowater.environment.ui.main.MainViewModel" />
+
+        <variable
+            name="versionData"
+            type="com.zerowater.environment.data.model.VersionData" />
+
+        <variable
+            name="viewPagerAdapter"
+            type="com.zerowater.environment.ui.main.MainFragment.MainPagerAdapter" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/mint_242e29_ff">
+
+            <ImageView
+                android:id="@+id/header"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:background="@color/white_ffffff_14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tl_tab"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
+                android:setupWithViewPager="@{vpContent}"
+                app:layout_constraintBottom_toBottomOf="@id/header"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tabIndicatorColor="@color/mint_c8f5e0_ff"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorHeight="3dp"
+                app:tabMinWidth="0dp"
+                app:tabMode="scrollable"
+                app:tabPaddingEnd="16dp"
+                app:tabPaddingStart="16dp"
+                app:tabRippleColor="@color/transparent_000000_00"
+                app:tabTextAppearance="@style/TabTextSize"
+                app:tabTextColor="@color/selector_color_tab" />
+
+            <com.zerowater.environment.ui.custom.SwipeControlViewPager
+                android:id="@+id/vp_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:currentPosition="@={viewModel.currentPosition}"
+                android:viewPagerAdapter="@{viewPagerAdapter}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/header"
+                app:swipe_enable="false" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+</layout>

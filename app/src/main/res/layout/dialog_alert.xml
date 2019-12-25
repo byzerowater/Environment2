@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.alert.AlertDialog">
+
+    <data>
+
+
+        <import type="com.zerowater.environment.util.StringUtil" />
+
+        <variable
+            name="onAlertButtonClickListener"
+            type="com.zerowater.environment.ui.alert.AlertDialog.OnAlertButtonClickListener" />
+
+        <variable
+            name="alertResource"
+            type="com.zerowater.environment.data.vo.AlertResource" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="400dp"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_ffffff_ff"
+            android:minWidth="400dp">
+
+
+            <TextView
+                android:id="@+id/tv_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="32dp"
+                android:gravity="center"
+                android:letterSpacing="-0.04"
+                android:lineSpacingExtra="6sp"
+                android:text="@{alertResource.message}"
+                android:textColor="@color/black_000000_ff"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <Button
+                android:id="@+id/btn_negative"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/selector_negative_button"
+                android:letterSpacing="-0.04"
+                android:onClick="@{() -> onAlertButtonClickListener.onNegativeClick()}"
+                android:text="@{alertResource.negative}"
+                android:textColor="@color/white_ffffff_ff"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@id/btn_positive"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_message"
+                app:visibleGone="@{StringUtil.isEmpty(alertResource.negative)}" />
+
+            <Button
+                android:id="@+id/btn_positive"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:background="@drawable/selector_positive_button"
+                android:letterSpacing="-0.04"
+                android:onClick="@{() -> onAlertButtonClickListener.onPositiveClick()}"
+                android:text="@{alertResource.positive}"
+                android:textColor="@color/white_ffffff_ff"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/btn_negative"
+                app:layout_constraintTop_toTopOf="@+id/btn_negative"
+                app:layout_goneMarginTop="30dp"
+                app:visibleGone="@{StringUtil.isEmpty(alertResource.positive)}" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

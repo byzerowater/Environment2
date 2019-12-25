@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/mint_73a08c_ff</color>
+    <color name="colorPrimaryDark">@color/mint_425a4f_ff</color>
+    <color name="colorAccent">@color/mint_5f8373_ff</color>
+
+    <color name="transparent_000000_00">#00000000</color>
+
+    <color name="white_ffffff_14">#14ffffff</color>
+    <color name="white_ffffff_8f">#8fffffff</color>
+    <color name="white_ffffff_ff">#ffffffff</color>
+
+    <color name="mint_f1fdf7_ff">#fff1fdf7</color>
+    <color name="mint_e4faef_ff">#ffe4faef</color>
+    <color name="mint_d6f8e8_ff">#ffd6f8e8</color>-
+    <color name="mint_c8f5e0_ff">#ffc8f5e0</color>
+    <color name="mint_aaf0d1_ff">#ffaaf0d1</color>
+    <color name="mint_8cc4ab_ff">#ff8cc4ab</color>
+    <color name="mint_73a08c_ff">#ff73a08c</color>
+    <color name="mint_5f8373_ff">#ff5f8373</color>
+    <color name="mint_4f6c5f_ff">#ff4f6c5f</color>
+    <color name="mint_425a4f_ff">#ff425a4f</color>
+    <color name="mint_384b42_ff">#ff384b42</color>
+    <color name="mint_2e3c36_ff">#ff2e3c36</color>
+    <color name="mint_242e29_ff">#ff242e29</color>
+    <color name="mint_1a211e_ff">#ff1a211e</color>
+
+    <color name="black_000000_0a">#0a000000</color>
+    <color name="black_000000_7a">#7a000000</color>
+    <color name="black_000000_ff">#ff000000</color>
+
+</resources>

@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">ENVIRONMENT</string>
+
+    <!--    공통-->
+    <string name="text_network_error">오류로 인하여 정상적인 데이터를 수신하지 못하였습니다.</string>
+    <string name="text_network_setting_error">네트워크에 접속할 수 없습니다.\n네트워크 연결 상태를 확인해주세요.</string>
+
+    <!--로그인-->
+    <string name="text_brand">ZEROWATER</string>
+    <string name="text_input_id">아이디를 입력하세요.</string>
+    <string name="text_login">로그인</string>
+    <string name="text_copyright">COPYRIGHT© ZEROWATER</string>
+    <string name="_text_version">Version %s</string>
+
+    <!--로딩-->
+    <string name="text_loading">Loading</string>
+
+    <!--탭-->
+    <string name="text_board">BOARD</string>
+    <string name="text_history">HISTORY</string>
+
+    <!--다이얼로그-->
+    <string name="text_update">업데이트 하기</string>
+    <string name="text_setting">설정</string>
+    <string name="text_confirm">확인</string>
+    <string name="text_close">닫기</string>
+    <string name="text_cancel">취소</string>
+    <string name="text_retry">재시도</string>
+    <string name="text_late">나중에</string>
+    <string name="text_permission_guide">업데이트를 위해 저장공간 접근권한을 허용해주세요.</string>
+    <string name="text_go_setting">지금 설정</string>
+
+
+</resources>

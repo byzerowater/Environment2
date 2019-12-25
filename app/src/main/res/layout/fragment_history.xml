@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.history.HistoryFragment">
+
+    <data>
+
+        <import type="com.zerowater.environment.util.ListUtil" />
+
+        <import type="java.util.List" />
+
+        <import type="com.zerowater.environment.common.Const" />
+
+        <variable
+            name="viewModel"
+            type="com.zerowater.environment.ui.main.history.HistoryViewModel" />
+
+        <variable
+            name="recyclerViewAdapter"
+            type="com.zerowater.environment.ui.main.history.HistoryFragment.ProductAdapter" />
+
+        <variable
+            name="list"
+            type="List&lt;String>" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="blocksDescendants">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_history"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:bindData="@{list}"
+            android:clipToPadding="true"
+            android:itemAnimator="@{false}"
+            android:orientation="vertical"
+            android:recyclerViewAdapter="@{recyclerViewAdapter}"
+            android:supportsChangeAnimations="@{false}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:spanCount="2"
+            tools:listitem="@layout/item_history_product" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

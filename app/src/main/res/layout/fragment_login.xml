@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.login.LoginFragment">
+
+    <data>
+
+        <import type="com.zerowater.environment.BuildConfig" />
+
+        <variable
+            name="viewModel"
+            type="com.zerowater.environment.ui.login.LoginViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        app:openKeyboard="@{viewModel.openKeyboard}">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/brand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="145dp"
+                    android:letterSpacing="-0.04"
+                    android:text="@string/text_brand"
+                    android:textColor="@color/mint_f1fdf7_ff"
+                    android:textSize="32sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/app_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="-0.04"
+                    android:text="@string/app_name"
+                    android:textColor="@color/mint_f1fdf7_ff"
+                    android:textSize="56sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/brand" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/left_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.32" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/right_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.68" />
+
+                <EditText
+                    android:id="@+id/et_id"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="56dp"
+                    android:background="@color/transparent_000000_00"
+                    android:hint="@string/text_input_id"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@={viewModel.loginId}"
+                    android:textColor="@color/mint_e4faef_ff"
+                    android:textColorHint="@color/mint_73a08c_ff"
+                    android:textSize="24sp"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toStartOf="@id/btn_delete"
+                    app:layout_constraintStart_toStartOf="@id/left_line"
+                    app:layout_constraintTop_toBottomOf="@id/app_name" />
+
+                <ImageButton
+                    android:id="@+id/btn_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_delete"
+                    android:onClick='@{() -> etId.setText("")}'
+                    app:layout_constraintBottom_toBottomOf="@id/et_id"
+                    app:layout_constraintEnd_toEndOf="@id/right_line"
+                    app:layout_constraintTop_toTopOf="@id/et_id"
+                    app:visibleGone="@{!safeUnbox(viewModel.loginEnabled)}" />
+
+                <ImageView
+                    android:id="@+id/divider"
+                    android:layout_width="0dp"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/mint_5f8373_ff"
+                    app:layout_constraintEnd_toEndOf="@id/right_line"
+                    app:layout_constraintStart_toStartOf="@id/left_line"
+                    app:layout_constraintTop_toBottomOf="@id/et_id" />
+
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/selector_login_button"
+                    android:enabled="@{safeUnbox(viewModel.loginEnabled)}"
+                    android:letterSpacing="-0.04"
+                    android:onClick="@{viewModel::login}"
+                    android:text="@string/text_login"
+                    android:textColor="@color/selector_color_login"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/right_line"
+                    app:layout_constraintStart_toStartOf="@id/left_line"
+                    app:layout_constraintTop_toBottomOf="@id/divider" />
+
+                <TextView
+                    android:id="@+id/version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="46dp"
+                    android:layout_marginBottom="6dp"
+                    android:letterSpacing="-0.04"
+                    android:text="@{@string/_text_version(BuildConfig.VERSION_NAME)}"
+                    android:textColor="@color/mint_aaf0d1_ff"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@id/copyright"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_login"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/copyright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="46dp"
+                    android:letterSpacing="-0.04"
+                    android:text="@string/text_copyright"
+                    android:textColor="@color/mint_5f8373_ff"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>
